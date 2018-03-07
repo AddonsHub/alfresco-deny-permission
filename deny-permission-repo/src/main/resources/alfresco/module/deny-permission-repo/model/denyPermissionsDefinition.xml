@@ -327,7 +327,7 @@
 
         <!-- A deny denied every permision     -->
         <!-- deny permissions are set not to inherit                 -->
-        <permissionGroup name="${security.permissionGroupDeny}" allowFullControl="true" expose="true" />
+        <permissionGroup name="Deny" allowFullControl="true" expose="true" />
 
         <!-- records permission -->
         <!-- Should be tied to the aspect -->
@@ -359,7 +359,7 @@
         <permissionGroup name="Contributor" extends="true" expose="true"/>
         <permissionGroup name="Editor" extends="true" expose="true"/>
         <permissionGroup name="Consumer" extends="true" expose="true"/>
-        <permissionGroup name="${security.permissionGroupDeny}" extends="true" expose="true"/>
+        <permissionGroup name="Deny" extends="true" expose="true"/>
         <permissionGroup name="RecordAdministrator" extends="true" expose="false"/>
 
     </permissionSet>
@@ -374,7 +374,7 @@
         <permissionGroup name="Contributor" extends="true" expose="true"/>
         <permissionGroup name="Editor" extends="true" expose="true"/>
         <permissionGroup name="Consumer" extends="true" expose="true"/>
-        <permissionGroup name="${security.permissionGroupDeny}" extends="true" expose="true"/>
+        <permissionGroup name="Deny" extends="true" expose="true"/>
         <permissionGroup name="RecordAdministrator" extends="true" expose="false"/>
 
     </permissionSet>
