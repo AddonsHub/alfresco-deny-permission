@@ -359,7 +359,7 @@
         <permissionGroup name="Contributor" extends="true" expose="true"/>
         <permissionGroup name="Editor" extends="true" expose="true"/>
         <permissionGroup name="Consumer" extends="true" expose="true"/>
-        <permissionGroup name="{security.permissionGroupDeny}" extends="true" expose="true"/>
+        <permissionGroup name="${security.permissionGroupDeny}" extends="true" expose="true"/>
         <permissionGroup name="RecordAdministrator" extends="true" expose="false"/>
 
     </permissionSet>
@@ -374,7 +374,7 @@
         <permissionGroup name="Contributor" extends="true" expose="true"/>
         <permissionGroup name="Editor" extends="true" expose="true"/>
         <permissionGroup name="Consumer" extends="true" expose="true"/>
-        <permissionGroup name="{security.permissionGroupDeny}" extends="true" expose="true"/>
+        <permissionGroup name="${security.permissionGroupDeny}" extends="true" expose="true"/>
         <permissionGroup name="RecordAdministrator" extends="true" expose="false"/>
 
     </permissionSet>
