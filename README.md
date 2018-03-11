@@ -1,0 +1,1 @@
+# alfresco-deny-permission

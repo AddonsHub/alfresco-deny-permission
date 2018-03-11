@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+	Licensed to the Apache Software Foundation (ASF) under one or more
+	contributor license agreements.  See the NOTICE file distributed with
+	this work for additional information regarding copyright ownership.
+	The ASF licenses this file to You under the Apache License, Version 2.0
+	(the "License"); you may not use this file except in compliance with
+	the License.  You may obtain a copy of the License at
+	
+	http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="permissionServiceImpl" class="net.addonshub.repo.security.permissions.impl.CustomPermissionServiceImpl" init-method="init">
+        <property name="nodeService">
+            <ref bean="mtAwareNodeService"/>
+        </property>
+        <property name="tenantService">
+            <ref bean="tenantService"/>
+        </property>
+        <property name="dictionaryService">
+            <ref bean="dictionaryService" />
+        </property>
+        <property name="permissionsDaoComponent">
+            <ref bean="permissionsDaoComponent" />
+        </property>
+        <property name="modelDAO">
+            <ref bean="permissionsModelDAO" />
+        </property>
+        <property name="authorityService">
+            <ref bean="authorityService" />
+        </property>
+        <property name="accessCache">
+            <ref bean="permissionsAccessCache" />
+        </property>
+        <property name="readersCache">
+            <ref bean="readersCache" />
+        </property>
+        <property name="readersDeniedCache">
+            <ref bean="readersDeniedCache" />
+        </property>
+        <property name="policyComponent">
+            <ref bean="policyComponent" />
+        </property>
+        <property name="aclDAO">
+            <ref bean="aclDAO" />
+        </property>
+        <property name="ownableService">
+            <ref bean="ownableService" />
+        </property>
+        <property name="anyDenyDenies">
+            <value>${security.anyDenyDenies}</value>
+        </property>
+        <property name="permissionGroupDeny">
+            <value>${security.permissionGroupDeny}</value>
+        </property>
+        <property name="dynamicAuthorities">
+            <list>
+                <ref bean="ownerDynamicAuthority" />
+                <ref bean="lockOwnerDynamicAuthority" />
+            </list>
+        </property>
+        <property name="fixedAclUpdater">
+            <ref bean="fixedAclUpdater"/>
+        </property>
+    </bean>
+
+    <bean id="org.alfresco.training.customRootObject" class="net.addonshub.denyPermission.jscript.CustomPermissionsProcessorExtension" parent="baseJavaScriptExtension">
+        <property name="extensionName" value="enhancedPermissions" />
+        <property name="serviceRegistry">
+            <ref bean="ServiceRegistry"/>
+        </property>
+    </bean>
+
+
+</beans>
